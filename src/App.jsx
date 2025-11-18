@@ -1,37 +1,26 @@
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Features from './components/Features'
-import About from './components/About'
-import Integrations from './components/Integrations'
-import Pricing from './components/Pricing'
-import FAQ from './components/FAQ'
-import CTA from './components/CTA'
+import { Routes, Route } from 'react-router-dom'
+import SiteLayout from './layouts/SiteLayout'
+import Home from './pages/Home'
+import About from './pages/About'
+import Solutions from './pages/Solutions'
+import Integrations from './pages/Integrations'
+import Pricing from './pages/Pricing'
+import FAQ from './pages/FAQ'
+import Contact from './pages/Contact'
 
 function App() {
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100">
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Features />
-        <Integrations />
-        <Pricing />
-        <FAQ />
-        <CTA />
-      </main>
-      <footer className="py-10 border-t border-slate-200 dark:border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-slate-500">© {new Date().getFullYear()} Medos. All rights reserved.</p>
-          <div className="flex items-center gap-6 text-sm text-slate-500">
-            <a href="#about" className="hover:text-slate-800 dark:hover:text-slate-200">About</a>
-            <a href="#solutions" className="hover:text-slate-800 dark:hover:text-slate-200">Solutions</a>
-            <a href="#pricing" className="hover:text-slate-800 dark:hover:text-slate-200">Pricing</a>
-            <a href="#contact" className="hover:text-slate-800 dark:hover:text-slate-200">Contact</a>
-          </div>
-        </div>
-      </footer>
-    </div>
+    <SiteLayout>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/solutions" element={<Solutions />} />
+        <Route path="/integrations" element={<Integrations />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </SiteLayout>
   )
 }
 
